@@ -11,6 +11,9 @@ export const config = {
         SECRET: process.env.TOKEN_SECRET,
         EXPIRES_IN: process.env.TOKEN_SECRET_EXPIRES_IN,
     },
+    BCRYPT: {
+        SALT_ROUND: process.env.BCRYPT_SALT_ROUND,
+    },
     DATABASE: {
         MONGO_URI: process.env.MONGO_URI,
         NAME: process.env.DATABASE_NAME,
