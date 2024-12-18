@@ -9,6 +9,7 @@ import bootstrap from './config/server/bootstrap.js';
 import { registerRoutes } from './config/server/registerRoutes.js';
 import requestLogger from './config/logger/requestLogger.js';
 import upload from './config/multer/multerConfig.js';
+import RouteNotFound from './app/routes/RouteNotFound.js';
 
 const app = express();
 
@@ -41,6 +42,9 @@ app.get('/', (req, res) => {
 
 // Register all routes under `/api`
 registerRoutes(app, '/api', routes);
+
+// handle route not found
+app.use(RouteNotFound);
 
 // server & database
 bootstrap(app);

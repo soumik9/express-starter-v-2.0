@@ -10,5 +10,11 @@ export const config = {
     DATABASE: {
         MONGO_URI: process.env.MONGO_URI,
         NAME: process.env.DATABASE_NAME,
+    },
+    MAIL: {
+        SENDER_EMAIL_ID: process.env.SENDER_EMAIL_ID,
+        SENDER_EMAIL_PASSWORD: process.env.SENDER_EMAIL_PASSWORD,
+        SENDER_EMAIL_HOSTNAME: process.env.SENDER_EMAIL_HOSTNAME,
+        SENDER_EMAIL_PORT: process.env.SENDER_EMAIL_PORT,
     }
 };
