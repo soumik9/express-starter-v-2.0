@@ -10,6 +10,7 @@ import { registerRoutes } from './config/server/registerRoutes.js';
 import requestLogger from './config/logger/requestLogger.js';
 import upload from './config/multer/multerConfig.js';
 import RouteNotFound from './app/routes/RouteNotFound.js';
+import GlobalErrorHandler from './config/errors/GlobalErrorHandler.js';
 
 const app = express();
 
@@ -42,6 +43,9 @@ app.get('/', (req, res) => {
 
 // Register all routes under `/api`
 registerRoutes(app, '/api', routes);
+
+// global error handler
+app.use(GlobalErrorHandler);
 
 // handle route not found
 app.use(RouteNotFound);
