@@ -2,11 +2,11 @@ import { ZodError } from 'zod';
 import { MulterError } from 'multer';
 import httpStatus from 'http-status';
 
-import ApiError from './ApiError.js';
 import { config } from '../server/config.js';
 import CastErrorHandler from './CastErrorHandler.js';
 import ZodErrorHandler from './ZodErrorHandler.js';
 import ValidationErrorHandler from './ValidationErrorHandler.js';
+import { ApiError } from '../../libs/helpers/global.js';
 
 const GlobalErrorHandler = (error, req, res) => {
 
