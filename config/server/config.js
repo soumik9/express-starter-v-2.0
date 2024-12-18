@@ -7,6 +7,10 @@ dotenv.config({ path: path.join(process.cwd(), '.env') });
 export const config = {
     PORT: process.env.PORT || 5000,
     ENV: process.env.NODE_ENV || 'development',
+    TOKEN: {
+        SECRET: process.env.TOKEN_SECRET,
+        EXPIRES_IN: process.env.TOKEN_SECRET_EXPIRES_IN,
+    },
     DATABASE: {
         MONGO_URI: process.env.MONGO_URI,
         NAME: process.env.DATABASE_NAME,
