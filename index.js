@@ -1,9 +1,9 @@
 import express from 'express';
 import path from 'path';
-import cors from 'cors'
+import cors from 'cors';
 import helmet from "helmet";
-import xss from 'xss-clean'
-import sanitize from 'express-mongo-sanitize'
+import xss from 'xss-clean';
+import sanitize from 'express-mongo-sanitize';
 import { routes } from './app/routes/routes.js';
 import bootstrap from './config/server/bootstrap.js';
 import { registerRoutes } from './config/server/registerRoutes.js';
@@ -17,7 +17,6 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors());
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(sanitize());
 app.use(xss());
@@ -39,16 +38,16 @@ app.use('/public', express.static('public'));
 app.get('/', (req, res) => {
     const filePath = path.join(process.cwd(), 'public', 'html', 'index.html');
     res.sendFile(filePath);
-})
+});
 
 // Register all routes under `/api`
 registerRoutes(app, '/api', routes);
 
-// global error handler
+// Global error handler (should be before RouteNotFound)
 app.use(GlobalErrorHandler);
 
-// handle route not found
+// Handle route not found (should be the last middleware)
 app.use(RouteNotFound);
 
-// server & database
+// Server & database
 bootstrap(app);

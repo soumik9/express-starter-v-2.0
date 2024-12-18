@@ -11,6 +11,8 @@ const RouteNotFound = (req, res) => {
             },
         ],
     });
+    // const filePath = path.join(process.cwd(), 'public', 'html', 'NotFound.html');
+    // res.sendFile(filePath);
 }
 
 export default RouteNotFound;
