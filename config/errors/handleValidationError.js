@@ -1,4 +1,4 @@
-const ValidationErrorHandler = (error) => {
+const handleValidationError = (error) => {
     const errors = Object.values(error.errors).map((el) => {
         return {
             path: el?.path,
@@ -14,4 +14,4 @@ const ValidationErrorHandler = (error) => {
     };
 };
 
-export default ValidationErrorHandler;
+export default handleValidationError;

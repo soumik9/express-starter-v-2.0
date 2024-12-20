@@ -23,21 +23,6 @@ export const sendResponse = (res, data) => {
     res.status(data.statusCode).json(responseData);
 };
 
-// Api error class
-export class ApiError extends Error {
-    statusCode;
-
-    constructor(statusCode, message, stack = '') {
-        super(message);
-        this.statusCode = statusCode;
-        if (stack) {
-            this.stack = stack;
-        } else {
-            Error.captureStackTrace(this, this.constructor);
-        }
-    }
-}
-
 // Get request full url
 export const getRequestFulllUrl = (req) => {
     return req.protocol + '://' + req.get('host') + req.originalUrl;

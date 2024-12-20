@@ -1,4 +1,4 @@
-const CastErrorHandler = (error) => {
+const handleCastError = (error) => {
     const errors = [
         {
             path: error.path,
@@ -14,4 +14,4 @@ const CastErrorHandler = (error) => {
     };
 };
 
-export default CastErrorHandler;
+export default handleCastError;

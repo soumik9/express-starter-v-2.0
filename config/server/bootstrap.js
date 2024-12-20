@@ -12,7 +12,7 @@ process.on('uncaughtException', (error) => {
 const bootstrap = async (app) => {
     try {
         app.listen(config.PORT, () => {
-            infoLogger.info(`Listening on port http://localhost:${config.PORT}/api/v1`);
+            infoLogger.info(`Listening on port http://localhost:${config.PORT}`);
 
             // connect database after server started
             database()

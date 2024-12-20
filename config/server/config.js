@@ -5,7 +5,7 @@ dotenv.config({ path: path.join(process.cwd(), '.env') });
 
 // Export the environment variables
 export const config = {
-    PORT: process.env.PORT || 5000,
+    PORT: process.env.PORT,
     ENV: process.env.NODE_ENV || 'development',
     TOKEN: {
         SECRET: process.env.TOKEN_SECRET,

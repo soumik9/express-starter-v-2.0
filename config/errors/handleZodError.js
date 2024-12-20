@@ -1,4 +1,4 @@
-const ZodErrorHandler = (error) => {
+const handleZodError = (error) => {
     const errors = error.issues.map((issue) => {
         return {
             path: issue?.path[issue.path.length - 1],
@@ -15,4 +15,4 @@ const ZodErrorHandler = (error) => {
     };
 };
 
-export default ZodErrorHandler;
+export default handleZodError;
