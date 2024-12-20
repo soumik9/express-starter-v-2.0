@@ -9,8 +9,8 @@ import bootstrap from './config/server/bootstrap.js';
 import { registerRoutes } from './config/server/registerRoutes.js';
 import requestLogger from './config/logger/requestLogger.js';
 import upload from './config/multer/multerConfig.js';
-import globalErrorHandler from './config/errors/globalErrorHandler.js';
 import handleRouteNotFound from './app/routes/handleRouteNotFound.js';
+import handleGlobalErrors from './config/errors/handleGlobalErrors.js';
 
 const app = express();
 
@@ -45,7 +45,7 @@ registerRoutes(app, '/api', routes);
 
 // Global error handler (should be before RouteNotFound)
 app.use((err, req, res, next) => {
-    globalErrorHandler(err, req, res, next);
+    handleGlobalErrors(err, req, res, next);
 });
 
 // Handle route not found (should be the last middleware)

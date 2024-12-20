@@ -8,7 +8,7 @@ import { ZodError } from 'zod';
 import handleZodError from './handleZodError.js';
 import { config } from '../server/config.js';
 
-const globalErrorHandler = (error, req, res) => {
+const handleGlobalErrors = (error, req, res) => {
 
     let statusCode = 500;
     let message = 'Something went wrong !';
@@ -71,4 +71,4 @@ const globalErrorHandler = (error, req, res) => {
     });
 };
 
-export default globalErrorHandler;
+export default handleGlobalErrors;
